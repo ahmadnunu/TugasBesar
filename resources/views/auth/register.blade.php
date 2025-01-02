@@ -55,14 +55,14 @@
 <body>
     <div class="centered-container">
         <div class="card custom-card shadow-lg">
-            <div class="row g-0">
+            < class="row g-0">
                 <!-- Gambar -->
                 <div class="col-md-6">
                     <img src="{{ Vite::asset('resources/images/usecare.jpg') }}"
                         class="img-fluid h-100 custom-img" alt="Register Image">
                 </div>
                 <!-- Form -->
-                <div class="col-md-6">
+                < class="col-md-6">
                     <div class="card-body text-start form-section">
                         <h3 class="mb-4">Register</h3>
                         <form method="POST" action="{{ route('register') }}">
