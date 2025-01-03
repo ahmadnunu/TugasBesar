@@ -117,7 +117,7 @@
         </tr>
       </table> --}}
       <div class="d-flex justify-content-center align-items-center">
-        <img src="{{ asset('images/inilogo.jpeg') }}" alt="Logo UsCare" class="img-fluid"
+        <img src="{{ Vite::asset('resources/images/usecare.jpg') }}" alt="Logo UsCare" class="img-fluid"
           style="width: 200px; height: 200px;">
       </div>
       <hr>
