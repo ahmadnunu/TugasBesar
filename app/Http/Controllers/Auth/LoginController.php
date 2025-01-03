@@ -15,7 +15,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/posts/index'; // Setelah login, redirect ke halaman posts
+    protected $redirectTo = '/posts'; // Setelah login, redirect ke halaman posts
 
     /**
      * Logout user dan redirect ke halaman login.
