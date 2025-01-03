@@ -104,10 +104,6 @@
                             </div>
                         </form>
                         <div class="mt-3">
-                            <a href="{{ route('password.request') }}" class="text-decoration-none text-pink">Forgot your
-                                password?</a>
-                        </div>
-                        <div class="mt-3">
                             <a href="{{ route('register') }}" class="text-decoration-none text-pink">Don't have an
                                 account? Register</a>
                         </div>
