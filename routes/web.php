@@ -15,6 +15,11 @@ use App\Http\Controllers\PostController;
 |
 */
 
+// Arahkan root URL ke halaman login
+Route::get('/', function () {
+    return redirect()->route('login'); // Redirect ke login
+});
+
 // Otentikasi
 Auth::routes();
 
@@ -29,5 +34,6 @@ Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logou
 // Rute register (ini sudah otomatis ditangani oleh Auth::routes, tapi jika perlu eksplisit)
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
-Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
+// Tambahkan route spesifik untuk halaman index posts (opsional, jika resource tidak cukup)
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
