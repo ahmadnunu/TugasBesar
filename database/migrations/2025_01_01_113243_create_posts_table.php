@@ -23,7 +23,7 @@ class CreatePostsTable extends Migration
         Schema::dropIfExists('posts');
     }
 }
-=======
+
 return new class extends Migration
 {
     /**
