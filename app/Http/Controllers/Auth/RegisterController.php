@@ -73,6 +73,6 @@ class RegisterController extends Controller
 
     public function registered(Request $request, $user)
     {
-    return redirect('/posts/index');  // Arahkan ke posts.index setelah registrasi
+    return redirect('/posts');  // Arahkan ke posts.index setelah registrasi
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PostController;
 
@@ -16,28 +15,19 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-
-});
-
-
+// Otentikasi
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-Route::get('/', [PostController::class, 'index'])->name('home');
-
-Route::post('/posts', [PostController::class, 'store']);
-Route::get('/posts', function () {
-    return App\Models\Post::orderBy('created_at', 'desc')->get();
+// Rute untuk halaman utama dan posts (hanya dapat diakses setelah login)
+Route::middleware('auth')->group(function () {
+    Route::resource('posts', PostController::class);
 });
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+// Rute logout
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+// Rute register (ini sudah otomatis ditangani oleh Auth::routes, tapi jika perlu eksplisit)
+Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
