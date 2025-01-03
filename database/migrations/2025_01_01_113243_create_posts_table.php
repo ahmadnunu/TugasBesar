@@ -23,3 +23,31 @@ class CreatePostsTable extends Migration
         Schema::dropIfExists('posts');
     }
 }
+=======
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+{
+    Schema::create('posts', function (Blueprint $table) {
+        $table->id();
+        $table->string('user_name');
+        $table->timestamp('timestamp')->nullable();
+        $table->text('content');
+        $table->string('image')->nullable();
+        $table->timestamps();
+    });
+}
+    
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('posts');
+    }
+};
+
